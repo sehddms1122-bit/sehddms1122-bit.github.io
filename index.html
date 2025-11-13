@@ -1,48 +1,450 @@
-안녕하세요! 다음 사양에 맞춰 포트폴리오 웹사이트를 제작해주세요.
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신동은 - Brand Designer & Educator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-## 기본 정보:
-- 이름: 신동은
-- 직업: Brand Designer
-- 한 줄 소개: 시각디자인을 전공하고 있으며, 뷰티와 비주얼 콘텐츠 분야에 관심이 있습니다. 감각적인 비주얼과 기술을 결합해 트렌디한 디자인을 만드는 것이 목표입니다.
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #fdfbfb 0%, #f8f4f1 100%);
+        }
 
-## 레이아웃: A5 - 매거진 스타일
-잡지처럼 비대칭적이고 역동적인 레이아웃으로 개성을 표현합니다.
-- 독특하고 창의적인 인상
-- 시각적 계층 구조 명확
-- 에디토리얼 디자이너에 적합
-- 강한 개성 표현
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-## 색상 테마: B8 - 클래식 블루
-파란색 계열로 전문적이고 신뢰감 있는 인상을 전달합니다.
-주요 색상: #1565C0, #1976D2, #42A5F5, #E3F2FD
-- 전문적인 느낌
-- 신뢰감 형성
-- 보편적으로 선호
-- 기업 포트폴리오에 적합
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
 
-## 인터랙션: C6 - 오가닉 모션
-물결치듯 자연스럽게 변형되며 유기적인 느낌을 전달합니다.
-- 자연스럽고 부드러움
-- 유기적인 느낌
-- 편안한 경험
-- 자연 친화적 디자인에 적합
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid rgba(255,255,255,0.3);
+            margin-bottom: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
 
-## 필수 포함 섹션:
-1. 히어로 섹션 (이름, 직업, 간단한 소개)
-2. About Me (자기소개, 사진)
-3. Skills (보유 기술)
-4. Projects (프로젝트 3-4개, 각각 이미지와 설명)
-5. Contact (이메일, 소셜 미디어 링크)
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
 
-## 기술 요구사항:
-- 순수 HTML, CSS, JavaScript 사용 (외부 라이브러리 최소화)
-- 반응형 디자인 (모바일, 태블릿, 데스크톱)
-- GitHub Pages 배포 가능하도록 index.html 단일 파일
-- 모든 코드는 주석과 함께 제공
-- 이미지는 placeholder 사용 (https://via.placeholder.com)
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
 
-⚠️ 중요: Footer 섹션에는 반드시 다음 형식으로 작성해주세요:
-© 2025 [입력한 이름]. Powered by AI Portfolio Workshop.
-그리고 "AI Portfolio Workshop" 텍스트에는 https://ai.triz.kr 링크를 연결해주세요.
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
 
-전체 코드를 제공해주세요!
+        .location {
+            margin-top: 15px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #667eea;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            line-height: 2;
+            font-size: 1.1rem;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #667eea;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .project-description {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #764ba2;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: white;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #764ba2;
+        }
+
+        .contact-message {
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #fdfbfb 100%);
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            font-style: italic;
+            color: #555;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-content {
+                padding: 30px 20px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            header {
+                padding: 50px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .project-content {
+                padding: 20px;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="__project4.jpg__" alt="신동은 프로필" class="profile-image">
+            <h1>신동은</h1>
+            <p class="subtitle">Brand Designer & Educator</p>
+            <p class="location">📍 Seoul, Korea</p>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">ABOUT</h2>
+            <div class="about-content">
+                <p>안녕하세요! 감각적인 비주얼로 브랜드의 가치를 표현하는 브랜딩·콘텐츠 디자이너 신동은입니다.</p>
+                <p>뷰티와 비주얼 콘텐츠 분야에 관심이 많으며, 트렌디한 감각과 디자인 기술을 결합해 브랜드의 매력을 시각적으로 전달하는 것을 좋아합니다.</p>
+                <p>변화하는 트렌드 속에서도 브랜드의 본질을 시각적으로 해석하고, 사람들에게 오래 기억되는 디자인을 만드는 것이 제 목표입니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">SKILLS</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">UX/UI Design</div>
+                <div class="skill-tag">Design Thinking</div>
+                <div class="skill-tag">Figma, Sketch, Adobe XD</div>
+                <div class="skill-tag">User Research</div>
+                <div class="skill-tag">Prototyping</div>
+                <div class="skill-tag">Team Leadership</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">PROJECTS</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="__project3.jpg__" alt="東恩 프로젝트" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">東恩 (동은)</h3>
+                        <p class="project-description">
+                            단순한 포트폴리오를 넘어, 향수, 자연 오브제, 뷰티라는 세 가지 관심사를 통해 디자이너의 시각적 세계관을 엮어낸 몰입형 매거진 웹사이트입니다.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Figma</span>
+                            <span class="tech-badge">User Testing</span>
+                            <span class="tech-badge">Design System</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="__project1.jpg__" alt="FLARE 프로젝트" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">FLARE (플레어)</h3>
+                        <p class="project-description">
+                            플레어는 단순한 꾸밈이 아닌, 자신을 드러내는 태도이자 표현으로서의 뷰티를 이야기합니다.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Sketch</span>
+                            <span class="tech-badge">Prototyping</span>
+                            <span class="tech-badge">A/B Testing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/project03.jpg" alt="대시보드 프로젝트" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">기업 대시보드 시스템</h3>
+                        <p class="project-description">
+                            복잡한 데이터를 시각화하는 B2B 대시보드 UI/UX 디자인. 사용자 리서치 기반으로 정보 구조를 최적화하여 업무 효율성 증대.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Adobe XD</span>
+                            <span class="tech-badge">Data Visualization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">CONTACT</h2>
+            <div class="contact-content">
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-info">
+                        <strong>Email</strong><br>
+                        <a href="mailto:sehddms1122@gmail.com">sehddms1122@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-info">
+                        <strong>Phone</strong><br>
+                        <a href="tel:010-5013-8387">010-5013-8387</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <div class="contact-info">
+                        <strong>Website</strong><br>
+                        <a href="https://triz.kr" target="_blank">https://triz.kr</a>
+                    </div>
+                </div>
+
+                <div class="contact-message">
+                    프로젝트 협업이나 외주 문의는 언제든 환영합니다!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 신동은. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
